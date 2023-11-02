@@ -1,4 +1,4 @@
-#Production service
+#Procurement service
 
 ## Introduction
 
@@ -70,3 +70,4 @@ The index page contains a link to the OpenAPI information of your endpoints.
 A type safe invocation of HTTP rest endpoints. Specification [here](https://microprofile.io/project/eclipse/microprofile-rest-client)
 
 The example calls one endpoint from another JAX-RS resource where generated Rest Client is injected as CDI bean.
+

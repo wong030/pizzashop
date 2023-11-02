@@ -2,31 +2,31 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example</groupId>
-  <artifactId>demo-service-b</artifactId>
+  <groupId>production</groupId>
+  <artifactId>production-service</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
   <properties>
     <openliberty.maven.version>3.5.1</openliberty.maven.version>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.target>11</maven.compiler.target>
     <failOnMissingWebXml>false</failOnMissingWebXml>
     <jaeger.client.version>1.5.0</jaeger.client.version>
     <slf4j.jdk.version>1.7.30</slf4j.jdk.version>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <final.name>demo</final.name>
+    <maven.compiler.source>11</maven.compiler.source>
+    <final.name>production-service</final.name>
     <slf4j.api.version>1.7.30</slf4j.api.version>
   </properties>
   <dependencies>
     <dependency>
       <groupId>org.eclipse.microprofile</groupId>
       <artifactId>microprofile</artifactId>
-      <version>5.0</version>
+      <version>4.0.1</version>
       <type>pom</type>
       <scope>provided</scope>
     </dependency>
   </dependencies>
   <build>
-    <finalName>demo</finalName>
+    <finalName>user</finalName>
   </build>
   <profiles>
     <profile>
