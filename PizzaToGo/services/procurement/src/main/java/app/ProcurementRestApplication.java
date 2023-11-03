@@ -8,5 +8,5 @@ import javax.ws.rs.core.Application;
  */
 @ApplicationPath("/api")
 
-public class ProcurmentRestApplication extends Application {
+public class ProcurementRestApplication extends Application {
 }

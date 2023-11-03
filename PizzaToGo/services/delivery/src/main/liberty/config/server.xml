@@ -8,8 +8,8 @@
     
 
     <httpEndpoint id="defaultHttpEndpoint"
-                  httpPort="9084"
-                  httpsPort="9446"/>
+                  httpPort="9090"
+                  httpsPort="9091"/>
 
     <webApplication location="${project.name}.war" contextRoot="${app.context.root}">
         <classloader apiTypeVisibility="+third-party" />
