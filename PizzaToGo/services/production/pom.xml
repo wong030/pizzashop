@@ -26,7 +26,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>user</finalName>
+    <finalName>production</finalName>
   </build>
   <profiles>
     <profile>
