@@ -9,8 +9,8 @@ import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
-@Path("/delivery")
-public class DeliveryController {
+@Path("/shop")
+public class ShopController {
 
     @GET
     @Path("/{parameter}")
