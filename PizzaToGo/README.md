@@ -12,7 +12,7 @@ The `services` folder contains microservices responsible for different aspects o
 - **User Microservice**: Handles user-related functionalities.  => `localhost:9082`
 - **Procurement Microservice**: Deals with procurement => `localhost:9083`
 - **Delivery Microservice**: Manages delivery-related operations. => `localhost:9084`
-
+- **Shop Microservice**: => Shop activities `localhost:9085`
 
 
 Each microservice has its own module within the `services` folder.
