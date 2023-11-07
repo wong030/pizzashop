@@ -23,7 +23,12 @@
       <version>4.0.1</version>
       <type>pom</type>
       <scope>provided</scope>
-    </dependency>
+    </dependency>    
+    <dependency>
+		<groupId>jakarta.platform</groupId>
+		<artifactId>jakarta.jakartaee-api</artifactId>
+		<version>8.0.0</version>
+	</dependency>
   </dependencies>
   <build>
     <finalName>user</finalName>
