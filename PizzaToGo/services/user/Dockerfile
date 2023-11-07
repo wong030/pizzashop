@@ -1,13 +1,10 @@
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM open-liberty:kernel-slim
+COPY --chown=1001:0 src/main/liberty/config/server.xml /config/
 
-# Set the working directory in the container
-WORKDIR /app
+RUN features.sh
 
-# Copy the JAR file into the container at the specified location
-COPY target/shop.jar /app/app.jar
+COPY --chown=1001:0 target/user.war /config/dropins
 
-# Expose the port the app runs on
-EXPOSE 8080
+EXPOSE 9082
 
-# Run the application
-CMD ["java", "-jar", "app.jar"]
+RUN configure.sh
