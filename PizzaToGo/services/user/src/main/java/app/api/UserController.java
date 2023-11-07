@@ -6,6 +6,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import app.model.User;
+import app.dao.UserDAO;
+import app.api.dto.UserDTO;
 
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
