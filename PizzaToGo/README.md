@@ -19,4 +19,4 @@ Each microservice has its own module within the `services` folder.
 
 ### 2. UI
 
-The `ui` folder contains the user interface component of the PizzaToGo application. It interacts with the microservices in the `services` folder.
+The `ui` folder contains the user interface component of the PizzaToGo application. It interacts with the microservices in the `services` folder. The ui is hosted at `localhost:9080`
