@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<server description="user">
+<server description="${project.name}">
 
     <featureManager>
         <feature>microProfile-4.0</feature>
@@ -8,10 +8,10 @@
     
 
     <httpEndpoint id="defaultHttpEndpoint"
-                  httpPort="9082"
-                  httpsPort="9444"/>
+                  httpPort="9080"
+                  httpsPort="9443"/>
 
-    <webApplication location="user.war" contextRoot="${app.context.root}">
+    <webApplication location="${project.name}.war" contextRoot="${app.context.root}">
         <classloader apiTypeVisibility="+third-party" />
     </webApplication>
     <mpMetrics authentication="false"/>
