@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.mycompany.app</groupId>
     <artifactId>project-builder</artifactId>
-    <version>1</version>
+    <version>1.0</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
   <artifactId>delivery</artifactId>
@@ -22,7 +22,11 @@
     <slf4j.api.version>1.7.30</slf4j.api.version>
   </properties>
   <dependencies>
- 
+ <dependency>
+      <groupId>org.eclipse.microprofile</groupId>
+      <artifactId>microprofile</artifactId>
+      <scope>runtime</scope>
+    </dependency>
   </dependencies>
   <build>
     <finalName>delivery</finalName>
@@ -73,7 +77,18 @@
           </plugin>
         </plugins>
       </build>
+
+
       <dependencies>
+
+    <dependency>
+      <groupId>org.eclipse.microprofile</groupId>
+      <artifactId>microprofile</artifactId>
+      <version>4.0</version>
+      
+    </dependency>
+
+
         <dependency>
           <groupId>io.jaegertracing</groupId>
           <artifactId>jaeger-client</artifactId>

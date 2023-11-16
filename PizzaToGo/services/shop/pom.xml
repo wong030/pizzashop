@@ -9,7 +9,7 @@
     <relativePath>../../pom.xml</relativePath>
   </parent>
   <artifactId>shop</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>war</packaging>
   <properties>
     <openliberty.maven.version>3.5.1</openliberty.maven.version>
@@ -22,7 +22,7 @@
     <slf4j.api.version>1.7.30</slf4j.api.version>
   </properties>
   <dependencies>
-  
+
   </dependencies>
   <build>
     <finalName>shop</finalName>
