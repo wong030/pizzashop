@@ -2,7 +2,9 @@
 
 ## Project Structure
 
-This project is organized using Java with Maven as the build tool, and it follows the MicroProfile architecture. The project is divided into two main components:
+This project is organized using Java with Maven as the build tool, and it follows the MicroProfile architecture.
+
+Think of this project as a multimodule project.
 
 ### 1. Services
 
