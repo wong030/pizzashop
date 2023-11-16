@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>user</groupId>
   <artifactId>user</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>war</packaging>
   <properties>
     <openliberty.maven.version>3.5.1</openliberty.maven.version>

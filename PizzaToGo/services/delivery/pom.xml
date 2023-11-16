@@ -4,12 +4,12 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.mycompany.app</groupId>
-    <artifactId>my-app</artifactId>
+    <artifactId>project-builder</artifactId>
     <version>1</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
   <artifactId>delivery</artifactId>
-  <version>1</version>
+  <version>1.0</version>
   <packaging>war</packaging>
   <properties>
     <openliberty.maven.version>3.5.1</openliberty.maven.version>
