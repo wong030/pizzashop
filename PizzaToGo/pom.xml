@@ -10,19 +10,26 @@
   <artifactId>my-app</artifactId>
     
   <version>1</version>
-  <dependencyManagement>
+
   
   <dependencies>
 
-   <dependency>
-      <groupId>org.eclipse.microprofile</groupId>
-      <artifactId>microprofile</artifactId>
-      <version>4.0.1</version>
-      <scope>import</scope>
-    </dependency>
+<dependency>
+    <groupId>org.eclipse.microprofile</groupId>
+    <artifactId>microprofile</artifactId>
+    <version>4.0</version>
+    <type>pom</type>
+    <scope>provided</scope>
+</dependency>
+
   </dependencies>
-  </dependencyManagement>
 
 
+  <modules>
+    <module>./services/delivery</module>
+    <module>./services/user</module>
+    <module>./services/shop</module>
+    <module>./services/procurement</module>
+    <module>./services/production</module>
   </modules>
 </project>
