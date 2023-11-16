@@ -22,11 +22,7 @@
     <slf4j.api.version>1.7.30</slf4j.api.version>
   </properties>
   <dependencies>
-  <dependency>
-      <groupId>org.eclipse.microprofile</groupId>
-      <artifactId>microprofile</artifactId>
-      <scope>runtime</scope>
-    </dependency>
+  
   </dependencies>
   <build>
     <finalName>production</finalName>

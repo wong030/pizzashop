@@ -10,8 +10,6 @@ import app.model.User;
 import app.dao.UserDAO;
 import app.api.dto.UserDTO;
 
-import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-
 @Path("/user")
 public class UserController {
 

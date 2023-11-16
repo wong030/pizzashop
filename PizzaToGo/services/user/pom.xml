@@ -2,8 +2,18 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>user</groupId>
+  
+    <parent>
+    <groupId>com.mycompany.app</groupId>
+    <artifactId>project-builder</artifactId>
+    <version>1.0</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
   <artifactId>user</artifactId>
+  
+  
+  <groupId>user</groupId>
+
   <version>1.0</version>
   <packaging>war</packaging>
   <properties>
@@ -22,7 +32,7 @@
 		<artifactId>jakarta.jakartaee-api</artifactId>
 		<version>8.0.0</version>
 	</dependency>
-  </dependencies>
+ </dependencies>
   <build>
     <finalName>user</finalName>
   </build>

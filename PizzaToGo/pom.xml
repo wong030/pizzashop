@@ -12,28 +12,34 @@
   <version>1.0</version>
 
 
-  <dependencyManagement>
+ <dependencyManagement>
+ 
+ </dependencyManagement>
+
+
     <dependencies>
 
-<dependency>
+      <dependency>
     <groupId>org.eclipse.microprofile</groupId>
     <artifactId>microprofile</artifactId>
-    <version>4.0</version>
-    <scope>import</scope>
-</dependency>
+    <version>4.0.1</version>
+    <scope>provided</scope>
+    <type>pom</type>
+      </dependency>
 
   </dependencies>
 
-  </dependencyManagement>
+
 
   
 
 
   <modules>
-   
     <module>./services/user</module>
+    <module>./services/production</module>
     <module>./services/shop</module>
     <module>./services/procurement</module>
-    <module>./services/production</module>
+    <module>./services/ui</module>
+
   </modules>
 </project>
