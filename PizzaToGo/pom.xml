@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <packaging>pom</packaging>
+   
+  <modelVersion>4.0.0</modelVersion>
+    
+  <groupId>com.mycompany.app</groupId>
+    
+  <artifactId>project-builder</artifactId>
+    
+  <version>1.0</version>
+
+
+ <dependencyManagement>
+ 
+ </dependencyManagement>
+
+
+    <dependencies>
+
+      <dependency>
+    <groupId>org.eclipse.microprofile</groupId>
+    <artifactId>microprofile</artifactId>
+    <version>4.0.1</version>
+    <scope>provided</scope>
+    <type>pom</type>
+      </dependency>
+
+  </dependencies>
+
+
+
+  
+
+
+  <modules>
+    <module>./services/user</module>
+    <module>./services/production</module>
+    <module>./services/shop</module>
+    <module>./services/procurement</module>
+    <module>./services/ui</module>
+
+  </modules>
+</project>

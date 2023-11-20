@@ -1,8 +1,10 @@
-procurement# PizzaToGo Project Readme
+# PizzaToGo Project Readme
 
 ## Project Structure
 
-This project is organized using Java with Maven as the build tool, and it follows the MicroProfile architecture. The project is divided into two main components:
+This project is organized using Java with Maven as the build tool, and it follows the MicroProfile architecture.
+
+Think of this project as a multimodule project.
 
 ### 1. Services
 
@@ -13,10 +15,18 @@ The `services` folder contains microservices responsible for different aspects o
 - **Procurement Microservice**: Deals with procurement => `localhost:9083`
 - **Delivery Microservice**: Manages delivery-related operations. => `localhost:9084`
 - **Shop Microservice**: => Shop activities `localhost:9085`
-
+--**UI**: => The `ui` folder contains the user interface component of the PizzaToGo application. It is hosted at `localhost:9080`
 
 Each microservice has its own module within the `services` folder.
 
-### 2. UI
+### Installation
 
-The `ui` folder contains the user interface component of the PizzaToGo application. It interacts with the microservices in the `services` folder. The ui is hosted at `localhost:9080`
+Run this command from the project root to build the project/all modules. 
+Ensure you have execute rights. 
+sh```
+  ./build.sh
+```
+
+
+
+
