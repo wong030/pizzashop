@@ -23,7 +23,7 @@ Each microservice has its own module within the `services` folder.
 
 Run this command from the project root to build the project/all modules. 
 Ensure you have execute rights. 
-sh```
+```sh
   ./build.sh
 ```
 
