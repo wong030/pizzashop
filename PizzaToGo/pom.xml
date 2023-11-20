@@ -39,6 +39,7 @@
     <module>./services/production</module>
     <module>./services/shop</module>
     <module>./services/procurement</module>
+    <module>./services/delivery</module>
     <module>./services/ui</module>
 
   </modules>
