@@ -15,7 +15,7 @@ The `services` folder contains microservices responsible for different aspects o
 - **Procurement Microservice**: Deals with procurement => `localhost:9083`
 - **Delivery Microservice**: Manages delivery-related operations. => `localhost:9084`
 - **Shop Microservice**: => Shop activities `localhost:9085`
---**UI**: => The `ui` folder contains the user interface component of the PizzaToGo application. It is hosted at `localhost:9080`
+--**UI**: => The `ui` folder contains the user interface component of the PizzaToGo application. It is hosted at `localhost:3000`
 
 Each microservice has its own module within the `services` folder.
 
