@@ -1,4 +1,16 @@
 image: maven:3-jdk-11
 
+stages:
+  - build
+  - package
+
+.only-main:
+  only:
+    - main
+
 build:
-  script: "mvn install -B -f PizzaToGo/pom.xml"
+  extends: .only-main
+  script: "mvn clean install"
+package:
+  extends: .only-main
+  script: "mvn package -T 1C -B -f PizzaToGo/pom.xml"
