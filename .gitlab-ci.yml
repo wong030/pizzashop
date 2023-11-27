@@ -13,7 +13,7 @@ stages:
 
 build:
   stage: build
-  script: "mvn clean install"
+  script: "mvn clean install -f PizzaToGo/pom.xml"
 package:
   stage: package
   script: "mvn package -T 1C -B -f PizzaToGo/pom.xml"
