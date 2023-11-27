@@ -9,8 +9,6 @@ stages:
     - main
 
 build:
-  extends: .only-main
   script: "mvn clean install"
 package:
-  extends: .only-main
   script: "mvn package -T 1C -B -f PizzaToGo/pom.xml"
