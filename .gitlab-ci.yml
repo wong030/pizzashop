@@ -1,8 +1,11 @@
 image: maven:3-jdk-11
-
+variables:
+  REGISTRY_URL: gitlab.rlp.net/hettel/ws2023_team_c
+  IMAGE_PREFIX: WS2023_Team_C
 stages:
   - build
   - package
+  - build_push
 
 .only-main:
   only:
@@ -14,3 +17,25 @@ build:
 package:
   stage: package
   script: "mvn package -T 1C -B -f PizzaToGo/pom.xml"
+
+build_push:
+  stage: build_push
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$REGISTRY_URL" # Login to GitLab Container Registry
+    - |
+
+      echo "Build docker images..."
+      imagePath=./PizzaToGo/services
+      cd $imagePath
+      serviceArray=(*/)
+      shopt -u nullglob 
+      for serviceDir in service1 service2 service3; do
+        serviceName="${serviceDir%/}"
+        echo "Building Docker image for: $serviceName"
+        cd "$serviceName" || exit 1
+
+        docker build -t "$REGISTRY_URL/$IMAGE_PREFIX/$serviceName:latest" .
+        docker push "$REGISTRY_URL/$IMAGE_PREFIX/$serviceName:latest"
+
+        cd ..
+      done
