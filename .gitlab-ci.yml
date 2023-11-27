@@ -16,7 +16,7 @@ build:
   script: "mvn clean install -f PizzaToGo/pom.xml"
 package:
   stage: package
-  script: "mvn package -T 1C -B -f PizzaToGo/pom.xml"
+  script: "mvn package -f PizzaToGo/pom.xml"
 
 build_push:
   stage: build_push
