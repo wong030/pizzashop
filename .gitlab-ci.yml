@@ -1,15 +1,7 @@
 image: maven:3-jdk-11
-variables:
-  REGISTRY_URL: gitlab.rlp.net/hettel/ws2023_team_c
-  IMAGE_PREFIX: WS2023_Team_C
 stages:
   - build
   - package
-  - build_push
-
-.only-main:
-  only:
-    - main
 
 build:
   stage: build
