@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 
 import app.model.User;
 import app.dao.UserDAO;
-import app.api.dto.UserDTO;
+import app.api.dto.RegistrationData;
 
 @Path("/user")
 public class UserController {
