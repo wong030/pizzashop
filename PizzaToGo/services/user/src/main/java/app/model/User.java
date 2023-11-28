@@ -2,11 +2,17 @@ package app.model;
 
 import java.io.Serializable;
 
-
+import javax.enterprise.inject.Model;
+import javax.inject.Named;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
+@NamedQueries({
+	@NamedQuery(name = "User.findAll", query = "SELECT r FROM User r"),
+	@NamedQuery(name = "User.findByUserName", query = "SELECT r FROM User r WHERE r.userName = :userName")
+})
+
 public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;

@@ -7,5 +7,5 @@ public interface UserDAO {
 	
 	User createUser(RegistrationData data);
 	
-	User readUser(int id);
+	
 }

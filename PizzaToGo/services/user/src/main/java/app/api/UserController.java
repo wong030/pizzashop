@@ -10,12 +10,13 @@ import app.model.User;
 import app.dao.UserDAO;
 import app.api.dto.RegistrationData;
 
-@Path("user")
+@Path("/user")
 public class UserController {
 	
 	@Inject
 	private UserDAO userDAO;
-	
+
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -30,10 +31,5 @@ public class UserController {
 	}
 
 	
-    @GET
-    @Path("/{parameter}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String doSomething(@PathParam("parameter") String parameter) {
-        return String.format("Processed parameter value '%s'", parameter);
-    }
+   
 }
