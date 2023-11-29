@@ -10,12 +10,64 @@ body {
 
 h1 {
 	color: red;
-	font-size: 450%;
+	font-size: 200%;
 	font-family: "Brush Script MT";
 	margin-left: 20px;
 }
-.row div{
-    display: inline;	
+
+
+.grid-container-header {
+	display: grid;
+	grid-template-columns: 30% 50% 20%;
+	padding: 10px;
+}
+
+
+.grid-container-main {
+	margin-left: 10%;
+	display: grid;
+	grid-template-columns: 30% 70%;
+	padding: 10px;
+}
+
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 30% 70%;
+	padding: 10px;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+.pizzaEintrag {
+	padding: 20px;
+	font-size: 30px;
+	color: white;
+	text-align: left;
+	list-style: none;
+}
+
+.grid-item {
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+}
+
+.pizzaBild{
+	height: 200px; 
+	width: 300px; 
+	padding: 20px; 
+	font-size: 30px; 
+	text-align: center; 
+}
+
+.BildTextPlatzhalter{
+	text-align: center; 
+	color: white;
+	margin-top: 30px;
 }
 
 .center {
@@ -66,8 +118,8 @@ h1 {
 	border-image-width: initial !important;
 	border-image-outset: initial !important;
 	border-image-repeat: initial !important;
-/*	background-image: linear-gradient(to bottom right, #2e2e2e, #454545, 1);*/
-	background-image: linear-gradient(to bottom right, rgba(30, 30, 30, 0.3), rgba(50,50,50,0.6));
+	/*	background-image: linear-gradient(to bottom right, #2e2e2e, #454545, 1);*/
+	background-image: linear-gradient(to bottom right, rgba(30, 30, 30, 0.3), rgba(50, 50, 50, 0.6));
 }
 
 .card {
@@ -91,7 +143,7 @@ h1 {
 	border-image-width: initial !important;
 	border-image-outset: initial !important;
 	border-image-repeat: initial !important;
-	background-image: linear-gradient(to bottom right, rgba(30, 30, 30, 0.3), rgba(50,50,50,0.6));
+	background-image: linear-gradient(to bottom right, rgba(30, 30, 30, 0.3), rgba(50, 50, 50, 0.6));
 }
 
 .t-1 {

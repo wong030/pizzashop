@@ -9,35 +9,55 @@
 
 <body>
 	<div class="b-4">
-		<div class="logo-container w-align">
-			<div class="center">
-				<div class="b-4">
-					<h1>Pizza to Go!</h1>
+		<div class="grid-container-header">
+			<div class="grid-item">
+				<div class="logo-container w-align">
+					<div class="center">
+						<div class="b-4">
+							<h1>Pizza to Go!</h1>
+						</div>
+					</div>
 				</div>
+			</div>
+			<div class="grid-item">
+			</div>
+			<div class="grid-item">
+				<button onclick="loginButtonClicked()">LOGIN</button>
 			</div>
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="w-25">
+	<div class="grid-container-main" id="grid-container-main">
+		<div class="grid-item">
 			<div class="card p-4">
-				<div class="row p-4">
-					<button>test</button>
-				</div>
+				<ul id="Pizzaliste">
+				</ul>
 			</div>
 		</div>
-		<div class="w-50">
-			<div class="card p-4">
-				<div class="row p-4">
-					<button>test</button>
+		<div class="grid-item" hidden id="pizzaDetails">
+			<div class="card p-4" id="pizzaDetaildCard">
+				<div class="grid-container">
+					<div class="grid-item">
+						<div class="card p-4 pizzaBild">
+							<div class="BildTextPlatzhalter">
+								Bild
+							</div>
+						</div>
+					</div>
+					<div class="grid-item">
+						<div class="card p-4">
+							<p>Pizza</p>
+							<p>Belag 1, Belag 2</p>
+						</div>
+						<div class="card p-4">
+							Klein Mittel Groß
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-	<a href="data/hello" target="_blank">Hello JAX-RS endpoint</a>
-	<br />
+	
 	<script src="webapp.js"></script>
 </body>
 
