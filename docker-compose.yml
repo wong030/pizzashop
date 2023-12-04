@@ -1,0 +1,55 @@
+version: "3.8"
+
+networks:
+  network:
+    driver: bridge
+
+services:
+  ui:
+    build:
+      context: ./PizzaToGo/services/ui
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - network
+  delivery:
+    build:
+      context: ./PizzaToGo/services/delivery
+      dockerfile: Dockerfile
+    ports:
+      - "9084:9084"
+    networks:
+      - network
+  production:
+    build:
+      context: ./PizzaToGo/services/production
+      dockerfile: Dockerfile
+    ports:
+      - "9081:9081"
+    networks:
+      - network
+  procurement:
+    build:
+      context: ./PizzaToGo/services/procurement
+      dockerfile: Dockerfile
+    ports:
+      - "9083:9083"
+    networks:
+      - network
+  shop:
+    build:
+      context: ./PizzaToGo/services/shop
+      dockerfile: Dockerfile
+    ports:
+      - "9085:9085"
+    networks:
+      - network
+  user:
+    build:
+      context: ./PizzaToGo/services/user
+      dockerfile: Dockerfile
+    ports:
+      - "9082:9082"
+    networks:
+      - network
