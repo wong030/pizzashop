@@ -21,11 +21,32 @@ Each microservice has its own module within the `services` folder.
 
 ### Installation
 
+
+#### Build 
 Run this command from the project root to build the project/all modules. 
 Ensure you have execute rights. 
 ```sh
   ./build.sh
 ```
+Without shell script:
+```sh
+  ./mvnw clean package -f ./PizzaToGo -T 1C
+```
+
+
+#### Docker compose
+Run this command to start the project with docker compose
+```sh
+  ./run.sh
+```
+
+Without shell script:
+```sh
+  docker compose up --build  # you can omit --build flag when you dont need to rebuild containers
+```
+
+
+
 
 
 
