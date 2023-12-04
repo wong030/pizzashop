@@ -3,7 +3,7 @@
 
     <featureManager>
         <feature>microProfile-4.0</feature>
-        
+        <feature>jpa-2.2</feature>
     </featureManager>
     
 
