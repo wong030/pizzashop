@@ -22,5 +22,15 @@
 
     <!-- The MP JWT configuration that injects the caller's JWT into a ResourceScoped bean for inspection. -->
     <mpJwt id="jwtUserConsumer" keyName="theKeyId" audiences="targetService" issuer="${jwt.issuer}"/>
+    
+    <library id="jdbcLib">
+		<fileset dir="${server.config.dir}" includes="*.jar" />
+	</library>
+    
+    <dataSource id="mysql" jndiName="jdbc/mysql">
+		<jdbcDriver libraryRef="jdbcLib" />
+		<properties databaseName="user"
+			serverName="localhost" portNumber="3306" user="root" password="" />
+	</dataSource>
 
 </server>

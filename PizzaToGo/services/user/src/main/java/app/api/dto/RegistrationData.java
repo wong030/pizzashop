@@ -66,5 +66,11 @@ public class RegistrationData {
 		this.city = city;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Vorname: " +  firstName + ", Nachname: " + lastName ;
+	}
+	
 	
 }
