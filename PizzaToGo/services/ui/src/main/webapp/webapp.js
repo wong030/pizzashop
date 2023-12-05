@@ -3,12 +3,13 @@
  */
 
 let PIZZALIST = ["Margherita", "Prosciutto", "Diavolo", "Fungi"];
-let TOPPINGS = {
+let PIZZALIST_TOPPINGS = {
 	'Margherita': 'Cheese, Tomato Sauce',
 	'Prosciutto': 'Cheese, Tomato Sauce, Ham',
 	'Diavolo': 'Cheese, Tomato Sauce, Pepperoni sausage, Onions, Peppers, Chili peppers, Garlic',
 	'Fungi': 'Cheese, Tomato sauce, Mushrooms'
 }
+let EXTRA_TOPPINGS = ["Extra Cheese", "Mozzarella", "Salami", "Pepperoni sausage", "Ham" ,"Barbecue Sauce", "Peppers", "Garlic", "Onions", "Mushrooms", "Tuna", "Gorgonzola", "Rucola"];
 
 document.addEventListener("DOMContentLoaded", function(event) {
 	let list = document.getElementById('Pizzaliste');
@@ -44,7 +45,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		pizzaContainer.appendChild(pizzaGridContainer);
 		list.appendChild(pizzaContainer);
 	})
+	let toppingsContainer = document.getElementById('pizzaExtraToppingsContainer');
+	EXTRA_TOPPINGS.forEach(function(topping) {
+		let toppingLabel = document.createElement('label');
+		toppingLabel.className = 'pizzaToppingsContainer';
+		toppingLabel.innerText = topping;
+		addCustomCheckbox(toppingLabel);
+		toppingsContainer.appendChild(toppingLabel);
+	})
+	
 });
+
+function addCustomCheckbox(label) {
+	let checkbox = document.createElement('input');
+	checkbox.type = "checkbox";
+	label.appendChild(checkbox);
+	let toppingsCheckBox = document.createElement('span');
+	toppingsCheckBox.className = "toppingsCheckBox";
+	label.appendChild(toppingsCheckBox);
+}
 
 function pizzaClicked(event) {
 	console.log('pizzaClicked');
@@ -52,7 +71,7 @@ function pizzaClicked(event) {
 	document.getElementById('pizzaDetails').removeAttribute('hidden');
 	let name = event.target.innerHTML;
 	document.getElementById('pizzaDetailsName').innerText = name;
-	document.getElementById('pizzaDetailsToppings').innerText = TOPPINGS[name];
+	document.getElementById('pizzaDetailsToppings').innerText = PIZZALIST_TOPPINGS[name];
 	document.getElementById('pizzaDetailsSize').innerText = 'Klein Mittel Groß';
 }
 
