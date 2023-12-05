@@ -11,7 +11,7 @@
 	<div class="b-4">
 		<div class="grid-container-header">
 			<div class="grid-item">
-				<div class="logo-container w-align">
+				<div class="card responsive logo-container w-align">
 					<div class="center">
 						<div class="b-4">
 							<h1>Pizza to Go!</h1>
@@ -22,7 +22,7 @@
 			<div class="grid-item">
 			</div>
 			<div class="grid-item">
-				<button onclick="loginButtonClicked()">LOGIN</button>
+				<button class="btn-login" onclick="loginButtonClicked()">LOGIN</button>
 			</div>
 		</div>
 	</div>
@@ -38,26 +38,29 @@
 			<div class="card p-4" id="pizzaDetaildCard">
 				<div class="grid-container">
 					<div class="grid-item">
-						<div class="card p-4 pizzaBild">
-							<div class="BildTextPlatzhalter">
+						<div class="pizzaBild card p-4 ">
+<!--							<div class="BildTextPlatzhalter">-->
 								Bild
-							</div>
+<!--							</div>-->
 						</div>
 					</div>
 					<div class="grid-item">
 						<div class="card p-4">
-							<p>Pizza</p>
-							<p>Belag 1, Belag 2</p>
+							<div id="pizzaDetailsName" class="pizzaEintrag"></div>
+							<div id="pizzaDetailsToppings" class="pizzaEintrag"></div>
 						</div>
 						<div class="card p-4">
-							Klein Mittel Groß
+							<div id="pizzaDetailsSize" class="pizzaEintrag"></div>
 						</div>
 					</div>
+				</div>
+				<div class="card p-4">
+					<div class="pizzaEintrag">Extra Beläge</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<script src="webapp.js"></script>
 </body>
 

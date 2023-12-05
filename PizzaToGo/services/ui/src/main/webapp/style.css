@@ -1,7 +1,7 @@
 @charset "ISO-8859-1";
 
 body {
-	/*   background-color: lightblue; */
+/*	background-color: lightblue; */
 	background-image: url('../../../../resources/background_image.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -10,7 +10,7 @@ body {
 
 h1 {
 	color: red;
-	font-size: 200%;
+	font-size: 150%;
 	font-family: "Brush Script MT";
 	margin-left: 20px;
 }
@@ -30,6 +30,28 @@ h1 {
 	padding: 10px;
 }
 
+.btn-login{
+	padding: 15px;
+	height: 35px;
+	line-height: 5px;
+	width: 80px;
+	border-radius: 50px;
+/*	border-color: black;*/
+	border-width: 1px;
+	border-style: solid;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	background-color: green;
+	
+}
+
+.btn-login:hover {
+    background-color: rgb(0, 148, 0);
+}
+.extra-belaege{
+	padding: 10px;	
+}
 
 .grid-container {
 	display: grid;
@@ -51,29 +73,33 @@ ul {
 }
 
 .grid-item {
-	padding: 20px;
+/*	padding: 20px;*/
 	font-size: 30px;
 	text-align: center;
 }
 
 .pizzaBild{
-	height: 200px; 
-	width: 300px; 
+	height: 95%; 
+	width: inherit; 
 	padding: 20px; 
 	font-size: 30px; 
 	text-align: center; 
+/*	text-align: center; */
+	color: white;
+	margin-top: 50px;
 }
 
 .BildTextPlatzhalter{
-	text-align: center; 
-	color: white;
-	margin-top: 30px;
 }
 
 .center {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.h-inherit{
+	height: inherit;
 }
 
 .w-align {
@@ -95,31 +121,6 @@ ul {
 
 .p-4 {
 	padding: 4px;
-}
-
-.logo-container {
-	margin: 4px;
-	border-radius: 500px;
-	border: 1px solid #ccc !important;
-	border-top-width: 1px !important;
-	border-right-width: 1px !important;
-	border-bottom-width: 1px !important;
-	border-left-width: 1px !important;
-	border-top-style: solid !important;
-	border-right-style: solid !important;
-	border-bottom-style: solid !important;
-	border-left-style: solid !important;
-	border-top-color: rgb(204, 204, 204) !important;
-	border-right-color: rgb(204, 204, 204) !important;
-	border-bottom-color: rgb(204, 204, 204) !important;
-	border-left-color: rgb(204, 204, 204) !important;
-	border-image-source: initial !important;
-	border-image-slice: initial !important;
-	border-image-width: initial !important;
-	border-image-outset: initial !important;
-	border-image-repeat: initial !important;
-	/*	background-image: linear-gradient(to bottom right, #2e2e2e, #454545, 1);*/
-	background-image: linear-gradient(to bottom right, rgba(30, 30, 30, 0.3), rgba(50, 50, 50, 0.6));
 }
 
 .card {
@@ -144,6 +145,14 @@ ul {
 	border-image-outset: initial !important;
 	border-image-repeat: initial !important;
 	background-image: linear-gradient(to bottom right, rgba(30, 30, 30, 0.3), rgba(50, 50, 50, 0.6));
+}
+
+.card.logo-container {
+	border-radius: 500px;
+}
+
+.responsive:hover{
+	background-image: linear-gradient(to bottom right, rgba(60, 60, 60, 0.3), rgba(80, 80, 80, 0.6));	
 }
 
 .t-1 {
@@ -208,5 +217,4 @@ ul {
 
 .r-4 {
 	margin-right: 4px;
-}
 }
