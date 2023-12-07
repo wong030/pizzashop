@@ -16,13 +16,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Singleton
 public class AuthenticationService {
     
-    public Boolean authenticateUser(String username, String password) throws IOException, InterruptedException{
+    public Boolean authenticateUser(int userID) throws IOException, InterruptedException{
         HttpClient client = HttpClient.newHttpClient();
 
         // Map für die Benutzerdaten
         Map<String, Object> userData = new HashMap<>();
-        userData.put("username", username);
-        userData.put("password", password);
+        userData.put("userID", userID);
+        
 
         // Konvertieren in JSON-String
         String jsonBody = toJsonString(userData);

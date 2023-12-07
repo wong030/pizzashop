@@ -4,13 +4,16 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
+import app.api.dto.CreateOrderDTO;
+import app.dao.OrderDAO;
+import app.model.Order;
 import app.services.AuthenticationService;
 
 @Path("/shop")
@@ -19,35 +22,48 @@ public class ShopController {
     @Inject
     private AuthenticationService authenticationService;
 
-    @GET
-    @Path("/{parameter}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String doSomething(@PathParam("parameter") String parameter) {
-        return String.format("Processed parameter value '%s'", parameter);
-    }
+    @Inject
+    private OrderDAO orderDAO;
 
-    @GET
-    @Path("/valid")
+    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Boolean validateAuthentication(String username, String password) throws IOException, InterruptedException{
-        
-        boolean response = authenticationService.authenticateUser(username, password);
-        return response;
+    public Response placeOrder(@HeaderParam("token") CreateOrderDTO createData) {
+
+        // Authentication request to User-Management
+        try {
+            boolean response = authenticationService.authenticateUser(createData.getUserId());
+            if (!response) {
+                // redirect to login/register window
+                return Response.status(404, "Not logged in").build();
+            } else {
+                final Order createdOrder = orderDAO.createOrder(createData);
+                System.out.println();
+                System.out.println("Created Rating: " + createdOrder);
+
+                return Response.ok().build();
+
+            }
+        } catch (IOException e) {
+            
+            e.printStackTrace();
+            return Response.serverError().build();
+
+        } catch (InterruptedException e) {
+
+            e.printStackTrace();
+            return Response.serverError().build();
+        }
+
     }
 
-
-    /* 
-    @Path("/order")
-    public String placeOrder(){
-
-        return "x";
-    }
-
-
-    public String configurePizza(){
-
-
-    }
-    */
+    /*
+     * ????????Fetch
+     * 
+     * 
+     * public String configurePizza(){
+     * 
+     * 
+     * }
+     */
 }
