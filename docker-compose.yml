@@ -45,11 +45,27 @@ services:
       - "9085:9085"
     networks:
       - network
+  shop_database:
+    build:
+      context: ./PizzaToGo/services/shop/dockerDB
+      dockerfile: Dockerfile
+    ports:
+      - "3306:3306"
+    networks:
+      - network
   user:
     build:
       context: ./PizzaToGo/services/user
       dockerfile: Dockerfile
     ports:
       - "9082:9082"
+    networks:
+      - network
+  user_database:
+    build:
+      context: ./PizzaToGo/services/user/dockerDB
+      dockerfile: Dockerfile
+    ports:
+      - "3306:3305"
     networks:
       - network
