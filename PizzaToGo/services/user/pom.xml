@@ -30,20 +30,20 @@
   <dependencies>
 	  
 	<dependency>
-			<groupId>org.eclipse.microprofile</groupId>
-			<artifactId>microprofile</artifactId>
-			<version>4.0.1</version>
-			<type>pom</type>
-			<scope>provided</scope>
-		</dependency>
+		<groupId>org.eclipse.microprofile</groupId>
+		<artifactId>microprofile</artifactId>
+		<version>4.0.1</version>
+		<type>pom</type>
+		<scope>provided</scope>
+	</dependency>
 
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${version.mysql}</version>
-			<scope>provided</scope>
-		</dependency>
-		  
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+    	<groupId>mysql</groupId>
+   		<artifactId>mysql-connector-java</artifactId>
+    	<version>8.0.24</version>
+	</dependency>
+			  
     <dependency>
 		<groupId>jakarta.platform</groupId>
 		<artifactId>jakarta.jakartaee-api</artifactId>
