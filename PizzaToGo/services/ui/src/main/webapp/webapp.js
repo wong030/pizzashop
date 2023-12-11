@@ -9,7 +9,8 @@ let PIZZALIST_TOPPINGS = {
 	'Diavolo': 'Cheese, Tomato Sauce, Pepperoni sausage, Onions, Peppers, Chili peppers, Garlic',
 	'Fungi': 'Cheese, Tomato sauce, Mushrooms'
 }
-let EXTRA_TOPPINGS = ["Extra Cheese", "Mozzarella", "Salami", "Pepperoni sausage", "Ham" ,"Barbecue Sauce", "Peppers", "Garlic", "Onions", "Mushrooms", "Tuna", "Gorgonzola", "Rucola"];
+let EXTRA_TOPPINGS = ["Extra Cheese", "Mozzarella", "Salami", "Pepperoni sausage", "Ham", "Barbecue Sauce", "Peppers", "Garlic", "Onions", "Mushrooms", "Tuna", "Gorgonzola", "Rucola"];
+let SIZES = ["Small (&#8960 26cm)", "Medium (&#8960 30cm)", "Large (&#8960 36cm)"]
 
 document.addEventListener("DOMContentLoaded", function(event) {
 	let list = document.getElementById('Pizzaliste');
@@ -50,29 +51,62 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		let toppingLabel = document.createElement('label');
 		toppingLabel.className = 'pizzaToppingsContainer';
 		toppingLabel.innerText = topping;
-		addCustomCheckbox(toppingLabel);
+		addCustomCheckbox(toppingLabel, topping);
 		toppingsContainer.appendChild(toppingLabel);
 	})
-	
+	let sizeContainer = document.getElementById('pizzaDetailsSize');
+	SIZES.forEach(function(size) {
+		let sizeLabel = document.createElement('label');
+		sizeLabel.className = 'pizzaSizeContainer';
+		sizeLabel.innerHTML = size;
+		addCustomRadioButton(sizeLabel, size);
+		sizeContainer.appendChild(sizeLabel);
+	})
+
 });
 
-function addCustomCheckbox(label) {
+function addCustomCheckbox(label, topping) {
 	let checkbox = document.createElement('input');
 	checkbox.type = "checkbox";
+	checkbox.name = topping;
 	label.appendChild(checkbox);
 	let toppingsCheckBox = document.createElement('span');
 	toppingsCheckBox.className = "toppingsCheckBox";
 	label.appendChild(toppingsCheckBox);
 }
 
+function addCustomRadioButton(label, size) {
+	let radioButton = document.createElement('input');
+	radioButton.type = "radio";
+	radioButton.id = size;
+	radioButton.name = "sizeRadioButton";
+	radioButton.value = size;
+	label.appendChild(radioButton);
+	let sizeRadioButton = document.createElement('span');
+	sizeRadioButton.className = "sizeRadioButton";
+	label.appendChild(sizeRadioButton);
+}
+
 function pizzaClicked(event) {
-	console.log('pizzaClicked');
-	console.log(event);
 	document.getElementById('pizzaDetails').removeAttribute('hidden');
 	let name = event.target.innerHTML;
 	document.getElementById('pizzaDetailsName').innerText = name;
 	document.getElementById('pizzaDetailsToppings').innerText = PIZZALIST_TOPPINGS[name];
-	document.getElementById('pizzaDetailsSize').innerText = 'Klein Mittel Groß';
+	document.getElementById('pizzaName').value = name;
+}
+
+function addToCartButtonClicked(e) {
+
+	const form = document.getElementById("pizzaForm");
+	const formData = new FormData(form);
+
+	let name = document.getElementById('pizzaName').value;
+	formData.append("pizzaName", name);
+
+	for (const key of formData.keys()) {
+		console.log(key + ', ' + formData.get(key));
+	}
+	
 }
 
 function loginButtonClicked() {

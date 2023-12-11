@@ -1,7 +1,6 @@
 @charset "ISO-8859-1";
 
 body {
-	/*	background-color: lightblue; */
 	background-image: url('../../../../resources/background_image.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -10,41 +9,113 @@ body {
 
 h1 {
 	color: red;
+	font-size: 250%;
+	font-family: "Brush Script MT";
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+h2 {
+	color: red;
 	font-size: 150%;
 	font-family: "Brush Script MT";
-	margin-left: 20px;
+	text-align: center;
+	margin-left: 45px;
+	margin-top: 0;
+	margin-bottom: 20px;
 }
 
 
 .grid-container-header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	margin: 10p;
 	display: grid;
-	grid-template-columns: 30% 50% 20%;
+	grid-template-columns: 20% 80%;
+}
+
+
+.grid-container-footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 70% 30%;
 	padding: 10px;
 }
 
 
 .grid-container-main {
+	position: fixed;
+	left: 0;
+	top: 201px;
+	width: 80%;
 	margin-left: 10%;
 	display: grid;
 	grid-template-columns: 30% 70%;
 	padding: 10px;
 }
 
-.btn-login {
+.btn {
 	padding: 15px;
-	height: 35px;
-	line-height: 5px;
-	width: 80px;
 	border-radius: 50px;
-	/*	border-color: black;*/
 	border-width: 1px;
 	border-style: solid;
 	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.btn-addToCart {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	width: 20%;
+	height: 150px;
+	line-height: 5px;
+	font-weight: bold;
+	color: red;
+	background-color: transparent;
+	background-image: linear-gradient(to bottom right, rgba(30, 30, 30, 0.3), rgba(50, 50, 50, 0.6));
+
+
+	font-size: 300%;
+	font-family: "Brush Script MT";
+
+
+	border: 1px solid #ccc !important;
+	border-top-width: 1px !important;
+	border-right-width: 1px !important;
+	border-bottom-width: 1px !important;
+	border-left-width: 1px !important;
+	border-top-style: solid !important;
+	border-right-style: solid !important;
+	border-bottom-style: solid !important;
+	border-left-style: solid !important;
+	border-top-color: rgb(204, 204, 204) !important;
+	border-right-color: rgb(204, 204, 204) !important;
+	border-bottom-color: rgb(204, 204, 204) !important;
+	border-left-color: rgb(204, 204, 204) !important;
+	border-image-source: initial !important;
+	border-image-slice: initial !important;
+	border-image-width: initial !important;
+	border-image-outset: initial !important;
+	border-image-repeat: initial !important;
+}
+
+.btn-login {
+	position: fixed;
+	right: 10px;
+	top: 5px;
+	height: 35px;
+	line-height: 5px;
+	width: 80px;
 	font-size: 15px;
 	font-weight: bold;
 	background-color: green;
-	cursor: pointer;
-
 }
 
 .btn-login:hover {
@@ -152,14 +223,79 @@ ul {
 	border-radius: 500px;
 }
 
-.pizzaToppingsContainerContainer{
+.pizzaSizeContainerContainer {
+	display: grid;
+	grid-template-columns: repeat(3, 33%);
+}
+
+.pizzaSizeContainer {
+	margin: 4%;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	font-size: 20px;
+	color: white;
+	text-align: left;
+	cursor: pointer;
+}
+
+.pizzaSizeContainer input {
+	position: relative;
+	opacity: 0;
+	height: 0;
+	width: 0;
+}
+
+.sizeRadioButton {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	border-radius: 10px;
+	background-color: #eee;
+}
+
+.pizzaSizeContainer:hover input~.sizeRadioButton {
+	background-color: #ccc;
+}
+
+.pizzaSizeContainer input:checked~.sizeRadioButton {
+	background-color: #2196F3;
+}
+
+.sizeRadioButton:after {
+	content: "";
+	position: relative;
+	display: none;
+}
+
+.pizzaSizeContainer input:checked~.sizeRadioButton:after {
+	display: block;
+}
+
+.pizzaSizeContainer .sizeRadioButton:after {
+	top: 0;
+	left: 0;
+	height: 13px;
+	width: 13px;
+	border-radius: 20px;
+	border: solid white;
+	border-width: 3px 3px 3px 3px;
+}
+
+.pizzaToppingsContainerContainer {
 	display: grid;
 	grid-template-columns: repeat(4, 25%);
 }
 
 .pizzaToppingsContainer {
 	color: white;
-	position:relative;
+	position: relative;
 	padding-left: 35px;
 	margin-bottom: 12px;
 	cursor: pointer;
@@ -205,76 +341,6 @@ ul {
 .pizzaToppingsContainer input:checked~.toppingsCheckBox:after {
 	display: block;
 }
-
-
-.container {
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Hide the browser's default checkbox */
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-}
-
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #2196F3;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-
-
 
 .pizzaToppingsContainer .toppingsCheckBox:after {
 	left: 9px;

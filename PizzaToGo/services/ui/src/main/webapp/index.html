@@ -8,60 +8,54 @@
 </head>
 
 <body>
-	<div class="b-4">
-		<div class="grid-container-header">
-			<div class="grid-item">
-				<div class="card responsive logo-container w-align">
-					<div class="center">
-						<div class="b-4">
-							<h1>Pizza to Go!</h1>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="grid-item">
-			</div>
-			<div class="grid-item">
-				<button class="btn-login" onclick="loginButtonClicked()">LOGIN</button>
-			</div>
-		</div>
-	</div>
-
-	<div class="grid-container-main" id="grid-container-main">
+	<div class="grid-container-header">
 		<div class="grid-item">
-			<div class="card p-4">
-				<ul id="Pizzaliste">
-				</ul>
+			<div class="card responsive logo-container">
+				<h1>Pizza</h1>
+				<h2>to go!</h2>
 			</div>
 		</div>
-		<div class="grid-item" hidden id="pizzaDetails">
-			<div class="card p-4" id="pizzaDetaildCard">
-				<div class="grid-container">
-					<div class="grid-item">
-						<div class="pizzaBild card p-4 ">
-							<!--							<div class="BildTextPlatzhalter">-->
-							Bild
-							<!--							</div>-->
-						</div>
-					</div>
-					<div class="grid-item">
-						<div class="card p-4">
-							<div id="pizzaDetailsName" class="pizzaEintrag"></div>
-							<div id="pizzaDetailsToppings" class="pizzaEintrag"></div>
-						</div>
-						<div class="card p-4">
-							<div id="pizzaDetailsSize" class="pizzaEintrag"></div>
-						</div>
-					</div>
-				</div>				
+		<button class="btn btn-login" onclick="loginButtonClicked()">LOGIN</button>
+	</div>
+
+	<form id="pizzaForm">
+		<input type="hidden" id="pizzaName">
+		<div class="grid-container-main" id="grid-container-main">
+
+			<div class="grid-item">
 				<div class="card p-4">
-					<div id="pizzaExtraToppingsContainer" class="pizzaToppingsContainerContainer" style="padding: 15px; ">
+					<ul id="Pizzaliste">
+					</ul>
+				</div>
+			</div>
+			<div class="grid-item" hidden id="pizzaDetails">
+				<div class="card p-4" id="pizzaDetaildCard">
+					<div class="grid-container">
+						<div class="grid-item">
+							<div class="pizzaBild card p-4 ">
+							</div>
+						</div>
+						<div class="grid-item">
+							<div class="card p-4">
+								<div id="pizzaDetailsName" class="pizzaEintrag"></div>
+								<div id="pizzaDetailsToppings" class="pizzaEintrag"></div>
+							</div>
+							<div class="card p-4">
+								<div id="pizzaDetailsSize"></div>
+							</div>
+						</div>
+					</div>
+					<div class="card p-4">
+						<div id="pizzaExtraToppingsContainer" class="pizzaToppingsContainerContainer"
+							style="padding: 15px; ">
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-
+	</form>
+	<button class="btn btn-addToCart responsive" id="addToCartButton" onclick="addToCartButtonClicked()">Add to
+		Cart</button>
 	<script src="webapp.js"></script>
 </body>
 
