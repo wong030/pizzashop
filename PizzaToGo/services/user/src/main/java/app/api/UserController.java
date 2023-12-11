@@ -1,22 +1,36 @@
 package app.api;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.inject.Inject;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.inject.Singleton;
 
 import app.model.User;
 import app.dao.UserDAO;
-import app.api.dto.UserDTO;
+import app.api.dto.RegistrationData;
 
 @Path("/user")
+@Singleton
 public class UserController {
+	
+	@Inject
+	private UserDAO userDAO;
 
-    @GET
-    @Path("/{parameter}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String doSomething(@PathParam("parameter") String parameter) {
-        return String.format("Processed parameter value '%s'", parameter);
-    }
+
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response registerUser(RegistrationData registrationData) {
+		
+		System.out.println();
+		System.out.println("Register " + registrationData );
+		
+		final User createdUser = userDAO.createUser(registrationData);
+		
+	return Response.ok().entity(createdUser).build();
+	}
+
+	
+   
 }
