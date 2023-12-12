@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Eclipse MicroProfile demo</title>
-  </head>
-  <body>
-    <h2>MicroProfile</h2>
 
-    <a href="data/hello" target="_blank">Hello JAX-RS endpoint</a> <br />
-  </body>
+<head>
+	<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8" />
+	<title>Eclipse MicroProfile demo</title>
+</head>
+
+<body>
+	<div class="grid-container-header">
+		<div class="grid-item">
+			<div class="card responsive logo-container">
+				<h1>Pizza</h1>
+				<h2>to go!</h2>
+			</div>
+		</div>
+		<button class="btn btn-login" onclick="loginButtonClicked()">LOGIN</button>
+	</div>
+
+	<form id="pizzaForm">
+		<input type="hidden" id="pizzaName">
+		<div class="grid-container-main" id="grid-container-main">
+
+			<div class="grid-item">
+				<div class="card p-4">
+					<ul id="Pizzaliste">
+					</ul>
+				</div>
+			</div>
+			<div class="grid-item" hidden id="pizzaDetails">
+				<div class="card p-4" id="pizzaDetaildCard">
+					<div class="grid-container">
+						<div class="grid-item">
+							<div class="pizzaBild card p-4 ">
+							</div>
+						</div>
+						<div class="grid-item">
+							<div class="card p-4">
+								<div id="pizzaDetailsName" class="pizzaEintrag"></div>
+								<div id="pizzaDetailsToppings" class="pizzaEintrag"></div>
+							</div>
+							<div class="card p-4">
+								<div id="pizzaDetailsSize"></div>
+							</div>
+						</div>
+					</div>
+					<div class="card p-4">
+						<div id="pizzaExtraToppingsContainer" class="pizzaToppingsContainerContainer"
+							style="padding: 15px; ">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<button class="btn btn-addToCart responsive" id="addToCartButton" onclick="addToCartButtonClicked()">Add to
+		Cart</button>
+	<script src="webapp.js"></script>
+</body>
+
 </html>
