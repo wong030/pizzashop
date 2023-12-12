@@ -1,0 +1,424 @@
+@charset "ISO-8859-1";
+
+body {
+	background-image: url('../../../../resources/background_image.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+h1 {
+	color: red;
+	font-size: 250%;
+	font-family: "Brush Script MT";
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+h2 {
+	color: red;
+	font-size: 150%;
+	font-family: "Brush Script MT";
+	text-align: center;
+	margin-left: 45px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+
+.grid-container-header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	margin: 10p;
+	display: grid;
+	grid-template-columns: 20% 80%;
+}
+
+
+.grid-container-footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 70% 30%;
+	padding: 10px;
+}
+
+
+.grid-container-main {
+	position: fixed;
+	left: 0;
+	top: 201px;
+	width: 80%;
+	margin-left: 10%;
+	display: grid;
+	grid-template-columns: 30% 70%;
+	padding: 10px;
+}
+
+.btn {
+	padding: 15px;
+	border-radius: 50px;
+	border-width: 1px;
+	border-style: solid;
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.btn-addToCart {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	width: 20%;
+	height: 150px;
+	line-height: 5px;
+	font-weight: bold;
+	color: red;
+	background-color: transparent;
+	background-image: linear-gradient(to bottom right, rgba(30, 30, 30, 0.3), rgba(50, 50, 50, 0.6));
+
+
+	font-size: 300%;
+	font-family: "Brush Script MT";
+
+
+	border: 1px solid #ccc !important;
+	border-top-width: 1px !important;
+	border-right-width: 1px !important;
+	border-bottom-width: 1px !important;
+	border-left-width: 1px !important;
+	border-top-style: solid !important;
+	border-right-style: solid !important;
+	border-bottom-style: solid !important;
+	border-left-style: solid !important;
+	border-top-color: rgb(204, 204, 204) !important;
+	border-right-color: rgb(204, 204, 204) !important;
+	border-bottom-color: rgb(204, 204, 204) !important;
+	border-left-color: rgb(204, 204, 204) !important;
+	border-image-source: initial !important;
+	border-image-slice: initial !important;
+	border-image-width: initial !important;
+	border-image-outset: initial !important;
+	border-image-repeat: initial !important;
+}
+
+.btn-login {
+	position: fixed;
+	right: 10px;
+	top: 5px;
+	height: 35px;
+	line-height: 5px;
+	width: 80px;
+	font-size: 15px;
+	font-weight: bold;
+	background-color: green;
+}
+
+.btn-login:hover {
+	background-color: rgb(0, 148, 0);
+}
+
+.extra-belaege {
+	padding: 10px;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 30% 70%;
+	padding: 10px;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+.pizzaEintrag {
+	padding: 20px;
+	font-size: 30px;
+	color: white;
+	text-align: left;
+	list-style: none;
+}
+
+.grid-item {
+	/*	padding: 20px;*/
+	font-size: 30px;
+	text-align: center;
+}
+
+.pizzaBild {
+	height: 95%;
+	width: inherit;
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+	/*	text-align: center; */
+	color: white;
+	margin-top: 50px;
+}
+
+.BildTextPlatzhalter {}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.h-inherit {
+	height: inherit;
+}
+
+.w-align {
+	padding: 20px;
+	width: fit-content;
+}
+
+.w-25 {
+	width: 25%;
+}
+
+.w-50 {
+	width: 50%;
+}
+
+.w-75 {
+	width: 75%;
+}
+
+.p-4 {
+	padding: 4px;
+}
+
+.card {
+	margin: 4px;
+	border-radius: 10px;
+	border: 1px solid #ccc !important;
+	border-top-width: 1px !important;
+	border-right-width: 1px !important;
+	border-bottom-width: 1px !important;
+	border-left-width: 1px !important;
+	border-top-style: solid !important;
+	border-right-style: solid !important;
+	border-bottom-style: solid !important;
+	border-left-style: solid !important;
+	border-top-color: rgb(204, 204, 204) !important;
+	border-right-color: rgb(204, 204, 204) !important;
+	border-bottom-color: rgb(204, 204, 204) !important;
+	border-left-color: rgb(204, 204, 204) !important;
+	border-image-source: initial !important;
+	border-image-slice: initial !important;
+	border-image-width: initial !important;
+	border-image-outset: initial !important;
+	border-image-repeat: initial !important;
+	background-image: linear-gradient(to bottom right, rgba(30, 30, 30, 0.3), rgba(50, 50, 50, 0.6));
+}
+
+.card.logo-container {
+	border-radius: 500px;
+}
+
+.pizzaSizeContainerContainer {
+	display: grid;
+	grid-template-columns: repeat(3, 33%);
+}
+
+.pizzaSizeContainer {
+	margin: 4%;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	font-size: 20px;
+	color: white;
+	text-align: left;
+	cursor: pointer;
+}
+
+.pizzaSizeContainer input {
+	position: relative;
+	opacity: 0;
+	height: 0;
+	width: 0;
+}
+
+.sizeRadioButton {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	border-radius: 10px;
+	background-color: #eee;
+}
+
+.pizzaSizeContainer:hover input~.sizeRadioButton {
+	background-color: #ccc;
+}
+
+.pizzaSizeContainer input:checked~.sizeRadioButton {
+	background-color: #2196F3;
+}
+
+.sizeRadioButton:after {
+	content: "";
+	position: relative;
+	display: none;
+}
+
+.pizzaSizeContainer input:checked~.sizeRadioButton:after {
+	display: block;
+}
+
+.pizzaSizeContainer .sizeRadioButton:after {
+	top: 0;
+	left: 0;
+	height: 13px;
+	width: 13px;
+	border-radius: 20px;
+	border: solid white;
+	border-width: 3px 3px 3px 3px;
+}
+
+.pizzaToppingsContainerContainer {
+	display: grid;
+	grid-template-columns: repeat(4, 25%);
+}
+
+.pizzaToppingsContainer {
+	color: white;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 23px;
+	text-align: left;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.pizzaToppingsContainer input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+.toppingsCheckBox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+}
+
+.pizzaToppingsContainer:hover input~.toppingsCheckBox {
+	background-color: #ccc;
+}
+
+.pizzaToppingsContainer input:checked~.toppingsCheckBox {
+	background-color: #2196F3;
+}
+
+.toppingsCheckBox:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+.pizzaToppingsContainer input:checked~.toppingsCheckBox:after {
+	display: block;
+}
+
+.pizzaToppingsContainer .toppingsCheckBox:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.responsive:hover {
+	cursor: pointer;
+	background-image: linear-gradient(to bottom right, rgba(60, 60, 60, 0.3), rgba(80, 80, 80, 0.6));
+}
+
+.t-1 {
+	margin-top: 1px;
+}
+
+.t-2 {
+	margin-top: 2px;
+}
+
+.t-3 {
+	margin-top: 3px;
+}
+
+.t-4 {
+	margin-top: 4px;
+}
+
+.b-1 {
+	margin-bottom: 1px;
+}
+
+.b-2 {
+	margin-bottom: 2px;
+}
+
+.b-3 {
+	margin-bottom: 3px;
+}
+
+.b-4 {
+	margin-bottom: 4px;
+}
+
+.l-1 {
+	margin-left: 1px;
+}
+
+.l-2 {
+	margin-left: 2px;
+}
+
+.l-3 {
+	margin-left: 3px;
+}
+
+.l-4 {
+	margin-left: 4px;
+}
+
+.r-1 {
+	margin-right: 1px;
+}
+
+.r-2 {
+	margin-right: 2px;
+}
+
+.r-3 {
+	margin-right: 3px;
+}
+
+.r-4 {
+	margin-right: 4px;
+}
