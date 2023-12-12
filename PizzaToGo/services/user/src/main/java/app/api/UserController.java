@@ -10,7 +10,7 @@ import app.model.User;
 import app.dao.UserDAO;
 import app.api.dto.RegistrationData;
 
-@Path("/user")
+@Path("user")
 @Singleton
 public class UserController {
 	

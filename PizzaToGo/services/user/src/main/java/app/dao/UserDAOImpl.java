@@ -48,9 +48,9 @@ public class UserDAOImpl implements UserDAO {
 		user.setPasswordSalt(salt);
 		user.setPasswordHash(passwordHash);
 
-		//em.persist(user);
-		//em.flush();
-		//em.refresh(user);
+		em.persist(user);
+		em.flush();
+		em.refresh(user);
 
 		return user;
 	}
