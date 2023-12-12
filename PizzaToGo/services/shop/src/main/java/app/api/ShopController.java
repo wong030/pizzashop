@@ -28,8 +28,9 @@ public class ShopController {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response placeOrder(@HeaderParam("token") CreateOrderDTO createData) {
-
+    @Path("order")
+    public Response placeOrder( CreateOrderDTO createData) {
+/* 
         // Authentication request to User-Management
         try {
             boolean response = authenticationService.authenticateUser(createData.getUserId());
@@ -41,7 +42,7 @@ public class ShopController {
                 System.out.println();
                 System.out.println("Created Rating: " + createdOrder);
 
-                return Response.ok().build();
+                return Response.ok().entity(createdOrder).build();
 
             }
         } catch (IOException e) {
@@ -54,6 +55,19 @@ public class ShopController {
             e.printStackTrace();
             return Response.serverError().build();
         }
+
+        */
+
+        
+                final Order createdOrder = orderDAO.createOrder(createData);
+                System.out.println();
+                System.out.println("Created Rating: " + createdOrder);
+
+                return Response.ok().entity(createdOrder).build();
+
+            
+       
+
 
     }
 
