@@ -55,6 +55,22 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 
+	@Override
+	public User readUser(int id) {
+		return em.find(User.class, id);
+		
+	}
+
+	@Override
+	public User readUser(String username) {
+		User user =  em.createNamedQuery("User.findByUserName", User.class).setParameter("userName", username)
+				.getSingleResult();
+		em.refresh(user);
+		return user;
+	}
+	
+	
+
 	
 	
 
