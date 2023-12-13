@@ -5,8 +5,12 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.enterprise.inject.Model;
+import javax.inject.Named;
 import javax.inject.Singleton;
 
+@Named
+@Model
 @Singleton
 public class AccessManager {
 	private Map<UUID, String> logins = new ConcurrentHashMap<>();
