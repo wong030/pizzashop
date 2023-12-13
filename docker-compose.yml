@@ -10,7 +10,7 @@ services:
       context: ./PizzaToGo/services/ui
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3000:80"
     networks:
       - network
   delivery:
