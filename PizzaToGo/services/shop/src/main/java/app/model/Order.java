@@ -1,27 +1,27 @@
 package app.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private int orderId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    
+    @Column(name = "user_id", nullable = false)
+    private int userId;
 
     @Column(name = "status", nullable = false)
     private String status;
@@ -29,29 +29,33 @@ public class Order {
     @Column(name = "pizza", nullable = false)
     private int pizza;
 
-    @Column(name = "ingredient1_id", nullable = false)
+    @Column(name = "ingredient1_id")
     private int ingredient1Id;
 
-    @Column(name = "ingredient2_id", nullable = false)
+    @Column(name = "ingredient2_id")
     private int ingredient2Id;
 
-    @Column(name = "ingredient3_id", nullable = false)
+    @Column(name = "ingredient3_id")
     private int ingredient3Id;
 
-    @Column(name = "ingredient4_id", nullable = false)
+    @Column(name = "ingredient4_id")
     private int ingredient4Id;
 
-    @Column(name = "ingredient5_id", nullable = false)
+    @Column(name = "ingredient5_id")
     private int ingredient5Id;
 
-    @Column(name = "ingredient6_id", nullable = false)
+    @Column(name = "ingredient6_id")
     private int ingredient6Id;
 
-    @Column(name = "ingredient7_id", nullable = false)
+    @Column(name = "ingredient7_id")
     private int ingredient7Id;
 
-    @Column(name = "ingredient8_id", nullable = false)
+    @Column(name = "ingredient8_id")
     private int ingredient8Id;
+
+    public Order(){
+
+    }
 
     public int getOrderId() {
         return orderId;
@@ -61,12 +65,12 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public User getUser() {
-        return user;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getStatus() {

@@ -1,17 +1,20 @@
 package app.dao;
 
+import javax.enterprise.inject.Model;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import app.api.dto.CreateOrderDTO;
 import app.model.Order;
-import app.model.User;
 
+@Named
+@Model
 public class OrderDAOImpl implements OrderDAO {
 
 	@PersistenceContext(name = "jpa-unit")
-	private EntityManager em;
+	 EntityManager em;
 
 	
 
@@ -19,9 +22,9 @@ public class OrderDAOImpl implements OrderDAO {
 	@Transactional
 	public Order createOrder(CreateOrderDTO createData) {
 
-		User createdUser = em.find(User.class, createData.getUserId());
+		
 		Order order = new Order();
-		order.setUser(createdUser);
+		order.setUserId(createData.getUserId());
         order.setStatus("In Queue");
         order.setPizza(createData.getPizzaId());
         order.setIngredient1Id(createData.getIngredient1Id());

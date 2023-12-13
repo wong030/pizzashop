@@ -13,7 +13,9 @@ public class CreateOrderDTO {
                 ingredient8Id;
 
 
-    
+    public CreateOrderDTO(){
+        
+    }
 
     public CreateOrderDTO(int userId, int pizzaId, int ingredient1Id, int ingredient2Id, int ingredient3Id,
             int ingredient4Id, int ingredient5Id, int ingredient6Id, int ingredient7Id, int ingredient8Id) {
