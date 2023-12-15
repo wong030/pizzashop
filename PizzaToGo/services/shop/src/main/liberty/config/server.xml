@@ -3,7 +3,7 @@
 
     <featureManager>
         <feature>microProfile-4.0</feature>
-        
+        <feature>jpa-2.2</feature>
     </featureManager>
     
 
@@ -22,5 +22,15 @@
 
     <!-- The MP JWT configuration that injects the caller's JWT into a ResourceScoped bean for inspection. -->
     <mpJwt id="jwtUserConsumer" keyName="theKeyId" audiences="targetService" issuer="${jwt.issuer}"/>
+
+    <library id="jdbcLib">
+		<fileset dir="${server.config.dir}" includes="*.jar" />
+	</library>
+    
+    <dataSource id="mysql" jndiName="jdbc/mysql">
+		<jdbcDriver libraryRef="jdbcLib" />
+		<properties databaseName="OrderDB"
+			serverName="localhost" portNumber="3305" user="root" password="" />
+	</dataSource>
 
 </server>
