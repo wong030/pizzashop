@@ -3,24 +3,28 @@ package app.api.dto;
 public class CreateOrderDTO {
 
     private int userId, pizzaId,
-                ingredient1Id,
-                ingredient2Id,
-                ingredient3Id,
-                ingredient4Id,
-                ingredient5Id,
-                ingredient6Id,
-                ingredient7Id,
-                ingredient8Id;
+            ingredient1Id,
+            ingredient2Id,
+            ingredient3Id,
+            ingredient4Id,
+            ingredient5Id,
+            ingredient6Id,
+            ingredient7Id,
+            ingredient8Id;
+    private String size;
+    private double price;
 
+    public CreateOrderDTO() {
 
-    public CreateOrderDTO(){
-        
     }
 
-    public CreateOrderDTO(int userId, int pizzaId, int ingredient1Id, int ingredient2Id, int ingredient3Id,
+    public CreateOrderDTO(int userId, int pizzaId, String size, double price, int ingredient1Id, int ingredient2Id,
+            int ingredient3Id,
             int ingredient4Id, int ingredient5Id, int ingredient6Id, int ingredient7Id, int ingredient8Id) {
         this.userId = userId;
         this.pizzaId = pizzaId;
+        this.price = price;
+        this.size = size;
         this.ingredient1Id = ingredient1Id;
         this.ingredient2Id = ingredient2Id;
         this.ingredient3Id = ingredient3Id;
@@ -45,6 +49,22 @@ public class CreateOrderDTO {
 
     public void setPizzaId(int pizzaId) {
         this.pizzaId = pizzaId;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public int getIngredient1Id() {
@@ -110,8 +130,5 @@ public class CreateOrderDTO {
     public void setIngredient8Id(int ingredient8Id) {
         this.ingredient8Id = ingredient8Id;
     }
-     
 
-
-                
 }

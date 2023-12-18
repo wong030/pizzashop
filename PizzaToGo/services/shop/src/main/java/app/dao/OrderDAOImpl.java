@@ -27,6 +27,8 @@ public class OrderDAOImpl implements OrderDAO {
 		order.setUserId(createData.getUserId());
         order.setStatus("In Queue");
         order.setPizza(createData.getPizzaId());
+		order.setPrice(createData.getPrice());
+		order.setSize(createData.getSize());
         order.setIngredient1Id(createData.getIngredient1Id());
         order.setIngredient2Id(createData.getIngredient2Id());
         order.setIngredient3Id(createData.getIngredient3Id());
