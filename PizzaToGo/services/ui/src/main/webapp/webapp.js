@@ -95,6 +95,16 @@ function pizzaClicked(event) {
 	document.getElementById('pizzaName').value = name;
 }
 
+document.getElementById('loginForm').addEventListener("submit", function(event) {
+	event.preventDefault();
+})
+
+document.getElementById('createAccountForm').addEventListener("submit", function(event) {
+	event.preventDefault();
+})
+
+
+
 function addToCartButtonClicked(e) {
 
 	const form = document.getElementById("pizzaForm");
@@ -106,19 +116,53 @@ function addToCartButtonClicked(e) {
 	for (const key of formData.keys()) {
 		console.log(key + ', ' + formData.get(key));
 	}
-	
+
 }
 
 function homeClicked(e) {
-	location.reload();	
+	location.reload();
 }
 
 function loginButtonClicked() {
 	console.log('loginButtonClicked');
 	let gridContainerMain = document.getElementById('grid-container-main');
+	let createAccountContainer = document.getElementById('create-account-container');
+	let loginContainer = document.getElementById('login-container');
+	let loginButton = document.getElementById('login-button');
 	if (gridContainerMain.getAttribute('style') == null || gridContainerMain.style.display == 'grid') {
 		gridContainerMain.style.display = 'none';
+		loginContainer.style.display = 'block';
+		loginButton.innerText = 'BACK';
 	} else if (gridContainerMain.style.display == 'none') {
 		gridContainerMain.style.display = 'grid';
+		loginContainer.style.display = 'none';
+		createAccountContainer.style.display = 'none';
+		loginButton.innerText = 'LOGIN';
+	}
+}
+
+function login() {
+	const form = document.getElementById("loginForm");
+	const formData = new FormData(form);
+
+	for (const key of formData.keys()) {
+		console.log(key + ', ' + formData.get(key));
+	}
+}
+
+function createAccountButtonClicked(e) {
+	let loginContainer = document.getElementById('login-container');
+	let createAccountContainer = document.getElementById('create-account-container');
+
+	loginContainer.style.display = 'none';
+	createAccountContainer.style.display = 'block';
+}
+
+function createAccount() {
+	const form = document.getElementById("createAccountForm");
+	const formData = new FormData(form);
+
+	for (const key of formData.keys()) {
+		console.log(key + ', ' + formData.get(key));
 	}
 }
