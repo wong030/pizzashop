@@ -265,7 +265,7 @@ ul {
 }
 
 .pizzaSizeContainer input:checked~.sizeRadioButton {
-	background-color: #2196F3;
+	background-color: green;
 }
 
 .sizeRadioButton:after {
@@ -329,7 +329,8 @@ ul {
 }
 
 .pizzaToppingsContainer input:checked~.toppingsCheckBox {
-	background-color: #2196F3;
+/*	background-color: #2196F3;*/
+	background-color: green;
 }
 
 .toppingsCheckBox:after {

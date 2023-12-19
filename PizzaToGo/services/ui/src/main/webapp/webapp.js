@@ -109,6 +109,10 @@ function addToCartButtonClicked(e) {
 	
 }
 
+function homeClicked(e) {
+	location.reload();	
+}
+
 function loginButtonClicked() {
 	console.log('loginButtonClicked');
 	let gridContainerMain = document.getElementById('grid-container-main');
