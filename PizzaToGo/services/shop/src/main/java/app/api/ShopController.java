@@ -1,18 +1,44 @@
 package app.api;
 
-import javax.ws.rs.GET;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import app.api.dto.CreateOrderDTO;
+import app.dao.OrderDAO;
+import app.model.Order;
 
 @Path("/shop")
+@Singleton
 public class ShopController {
 
-    @GET
-    @Path("/{parameter}")
+    @Inject
+    private OrderDAO orderDAO;
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String doSomething(@PathParam("parameter") String parameter) {
-        return String.format("Processed parameter value '%s'", parameter);
+    @Path("/order")
+    public Response placeOrder(CreateOrderDTO createData) {
+
+        try {
+            final Order createdOrder = orderDAO.createOrder(createData);
+            System.out.println();
+            System.out.println("Created Order: " + createdOrder);
+            return Response.ok().entity(createdOrder).build();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            return Response.serverError().build();
+
+        }
+
     }
+
 }

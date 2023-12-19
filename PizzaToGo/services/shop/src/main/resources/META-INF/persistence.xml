@@ -7,9 +7,9 @@
 
 	<persistence-unit name="jpa-unit" transaction-type="JTA">
 		<jta-data-source>jdbc/mysql</jta-data-source>		
-		<class>app.model.User</class>		
+		<class>app.model.Order</class>		
 		 <properties>          
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/UserDB"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3305/OrderDB"/>
             <property name="javax.persistence.jdbc.user" value="myuser"/>
             <property name="javax.persistence.jdbc.password" value="mypassword"/>
 			<property name="eclipselink.logging.level" value="INFO" />
@@ -17,6 +17,8 @@
 			<property name="eclipselink.logging.parameters" value="true" />
         </properties>
 	
-	</persistence-unit>	  				   
+	
+	</persistence-unit>					   
+				   
 
 </persistence>
