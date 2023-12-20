@@ -29,6 +29,12 @@ public class Order implements Serializable {
     @Column(name = "pizza", nullable = false)
     private int pizza;
 
+    @Column(name = "price", nullable = false)
+    private double price;
+
+    @Column(name = "size", nullable = false)
+    private String size;
+
     @Column(name = "ingredient1_id")
     private int ingredient1Id;
 
@@ -87,6 +93,24 @@ public class Order implements Serializable {
 
     public void setPizza(int pizza) {
         this.pizza = pizza;
+    }
+
+    
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public int getIngredient1Id() {
