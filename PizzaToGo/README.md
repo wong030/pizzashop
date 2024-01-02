@@ -40,6 +40,11 @@ Run this command to start the project with docker compose
   ./run.sh
 ```
 
+Using dev mode
+```sh
+  ./dev.sh
+```
+
 Without shell script:
 ```sh
   docker compose up --build  # you can omit --build flag when you dont need to rebuild containers
