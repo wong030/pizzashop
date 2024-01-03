@@ -30,6 +30,33 @@ public class UserController {
 		
 	return Response.ok().entity(createdUser).build();
 	}
+	
+	@GET
+	@Path("{userId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getUserById(@PathParam("userId") int userId) {
+		final User user = userDAO.readUser(userId);
+
+		final UserResponseData userData = UserResponseData.fromEntity(user);
+
+		return Response.ok().entity(userData).build();
+	}
+	
+
+	@GET
+	@Path("{username}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response checkUsername(@PathParam("username") String username) {
+		User user = null;
+		try {
+			user = userDAO.readUser(username);
+		}
+		catch(Exception ignored){
+
+		}
+		boolean isFree = user == null;
+		return Response.ok().entity(isFree).build();
+	}
 
 	
    
