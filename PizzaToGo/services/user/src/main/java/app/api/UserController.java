@@ -1,6 +1,7 @@
 package app.api;
 
 import javax.inject.Inject;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -9,6 +10,7 @@ import javax.inject.Singleton;
 import app.model.User;
 import app.dao.UserDAO;
 import app.api.dto.RegistrationData;
+import app.api.dto.UserResponseData;
 
 @Path("user")
 @Singleton
