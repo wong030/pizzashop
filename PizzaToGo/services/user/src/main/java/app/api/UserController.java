@@ -1,5 +1,7 @@
 package app.api;
 
+import java.util.Optional;
+
 import javax.inject.Inject;
 
 import javax.ws.rs.*;
@@ -8,6 +10,7 @@ import javax.ws.rs.core.Response;
 import javax.inject.Singleton;
 
 import app.model.User;
+import app.model.UserManager;
 import app.dao.UserDAO;
 import app.api.dto.RegistrationData;
 import app.api.dto.UserResponseData;
@@ -18,6 +21,10 @@ public class UserController {
 	
 	@Inject
 	private UserDAO userDAO;
+	
+	@Inject
+	private UserManager userManager;
+
 
 
 	@POST
@@ -33,33 +40,23 @@ public class UserController {
 	return Response.ok().entity(createdUser).build();
 	}
 	
+
 	@GET
-	@Path("{userId}")
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/{userId}")
 	public Response getUserById(@PathParam("userId") int userId) {
-		final User user = userDAO.readUser(userId);
-
-		final UserResponseData userData = UserResponseData.fromEntity(user);
-
-		return Response.ok().entity(userData).build();
+		final Optional<User> userById = userManager.lookupUser(userId);
+		if(userById.isPresent()) {
+			User user = userById.get();
+			UserResponseData userResponse = UserResponseData.fromEntity(user);
+			
+			return Response.ok().entity(userResponse).build();
+		}else {
+			return Response.status(404).build();
+		}
 	}
 	
-
-	@GET
-	@Path("{username}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response checkUsername(@PathParam("username") String username) {
-		User user = null;
-		try {
-			user = userDAO.readUser(username);
-		}
-		catch(Exception ignored){
-
-		}
-		boolean isFree = user == null;
-		return Response.ok().entity(isFree).build();
-	}
-
 	
    
 }
