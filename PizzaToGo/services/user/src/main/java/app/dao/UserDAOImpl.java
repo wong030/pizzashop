@@ -56,8 +56,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User readUser(int id) {
-		return em.find(User.class, id);
+	public User readUser(int userId) {
+		return em.find(User.class, userId);
 		
 	}
 
