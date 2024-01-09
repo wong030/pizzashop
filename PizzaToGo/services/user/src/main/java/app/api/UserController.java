@@ -72,14 +72,12 @@ public class UserController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response checkUsername(@PathParam("username") String username) {
 		User user = null;
-		try {
+		
 			user = userDAO.readUser(username);
-		}
-		catch(Exception ignored){
-
-		}
-		boolean isFree = user == null;
-		return Response.ok().entity(isFree).build();
+			UserResponseData userResponse = UserResponseData.fromEntity(user);
+		
+		
+		return Response.ok().entity(userResponse).build();
 	}
 
 

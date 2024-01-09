@@ -46,7 +46,8 @@ public class AccessController {
 			passwordHash = PasswordHelper.generatePasswordHash(password, user.getPasswordSalt());
 			if(Arrays.equals(passwordHash, user.getPasswordHash())) {
 				String token = accessManager.login(username).toString();
-				return Response.ok().entity(new UserLoginResponseData(username, token)).build();
+				int id = user.getUserId();
+				return Response.ok().entity(new UserLoginResponseData(username, token, id)).build();
 			} else {
 				return Response.status(401,"wrong username or password").build();
 			}
