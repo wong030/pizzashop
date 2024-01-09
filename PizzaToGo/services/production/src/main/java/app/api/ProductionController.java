@@ -23,16 +23,18 @@ public class ProductionController {
     }
 
     private static void processOrder(String gsonString) {
-        Production pizzaOrder = PizzaOrder.fromJsonString(gsonString);
 
+        Gson gson = new Gson();
+        //PizzaOrder pizzaOrder = gson.fromJson(pizzaOrder,PizzaOrder.class);
+        String [] ingredient = {"Zwiebel","Pillze", "Teig", "Soße"};
+        PizzaOrder pizzaOrder = new PizzaOrder("12", "26",ingredient );
+        
         String[] ingredients = pizzaOrder.getIngredients();
         String orderID = pizzaOrder.getOrderID();
         String userID = pizzaOrder.getUserID();
 
         Procurement procurementList = new Procurement(ingredients);
         Delivery deliveryList = new Delivery(orderID, userID);
-
-        Gson gson = new Gson();
 
         String jsonProcurement = gson.toJson(procurementList);
         String jsonDelivery = gson.toJson(deliveryList);
@@ -43,7 +45,7 @@ public class ProductionController {
             e.printStackTrace();
         }
 
-        ProcurementController.processOrder(jsonProcurement);
-        DeliveryController.processOrder(jsonDelivery);
+        //ProcurementController.processOrder(jsonProcurement);
+        //DeliveryController.processOrder(jsonDelivery);
     }
 }

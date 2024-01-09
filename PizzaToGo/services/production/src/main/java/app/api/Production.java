@@ -1,3 +1,4 @@
+package app.api;
 import com.google.gson.Gson;
 public class Production {
     private String[] ingredients;

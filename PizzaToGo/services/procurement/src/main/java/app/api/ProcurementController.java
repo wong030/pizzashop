@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+
 
 @Path("/procurement")
 public class ProcurementController {

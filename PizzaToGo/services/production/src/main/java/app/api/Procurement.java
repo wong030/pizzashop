@@ -1,3 +1,4 @@
+package app.api;
 import com.google.gson.annotations.SerializedName;
 
 public class Procurement {
