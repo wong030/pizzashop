@@ -4,6 +4,8 @@ document.querySelector("#registrationButton").onclick = signUp;
 
 //Registrierungsprozess
 async function signUp(){
+	
+	
     let firstname = document.querySelector("#user-first-name").value;
     let lastname = document.querySelector("#user-last-name").value;
     let street = document.querySelector("#user-street").value;
@@ -16,13 +18,18 @@ async function signUp(){
     //Zwecks der Einfärbung bei falschen Eingaben und der damit erforderlichen Auswertung der Funktionen
     //--> multiplikative Verknüpfung statt &
    
-        let user = await signUpAPI(firstname, lastname, street, housenumber, postcode, city, email, username, password);
-        
+    let user = await signUpAPI(firstname, lastname, street, housenumber, postcode, city, email, username, password);
+    
     }
    
 
 //Übertragen der Daten an die API und damit zur Datenbank
 async function signUpAPI(firstname, lastname, street, housenumber, postcode, city, email, username, password) {
+   let gridContainerMain = document.getElementById('grid-container-main');
+   let createAccountContainer = document.getElementById('create-account-container');
+   let loginContainer = document.getElementById('login-container');
+   let loginButton = document.getElementById('login-button');
+   
     let user = {
         userName: username,
         password: password,
@@ -49,6 +56,12 @@ async function signUpAPI(firstname, lastname, street, housenumber, postcode, cit
         .catch((error) => {
             console.error('Error:', error);
         });
+        
+    gridContainerMain.style.display = 'grid';
+	loginContainer.style.display = 'none';
+	createAccountContainer.style.display = 'none'; 
+	loginButton.innerText = "LOGIN";
+	
     return createdUser;
 }
 
