@@ -23,14 +23,18 @@ public class AccessManager {
 		return this.logins.containsKey(loginID);
 	}
 	
-	public Optional<String> getLoginName(UUID loginID){
-		String loginname = this.logins.get(loginID);
-		if(loginname != null) {
-			return Optional.of(loginname);
-		}else {
-			return Optional.empty();
-		}		
-	}
+	 public Optional<String> getLoginName(UUID loginID)
+	    {
+	        String loginname = this.logins.get(loginID);
+	        if( loginname != null )
+	        {
+	            return Optional.of(loginname);
+	        }
+	        else
+	        {
+	            return Optional.empty();
+	        }
+	    }
 	
 	public UUID login(String loginname) {
 		if(this.logins.containsValue(loginname)) {
