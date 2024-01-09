@@ -170,9 +170,9 @@ h2 {
 
 #loginText{
 	position: fixed;
-  	right: 50%;	
-	color: white;
-	font-family: "Brush Script MT";
+  	right: 20%;	
+	color: rgb(0, 255, 64);
+	
 	margin: 8px 0;
 	font-size: 26px;
 	cursor: pointer;
