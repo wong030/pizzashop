@@ -7,8 +7,10 @@ import javax.ws.rs.*;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.enterprise.inject.Default;
@@ -30,6 +32,29 @@ public class AccessController {
 
 	@Inject
 	private UserDAO userDAO;
+	
+	
+		@GET
+	    @Produces(MediaType.APPLICATION_JSON)
+		@Transactional
+	    public Response checkLogin(@HeaderParam("token") String token) {
+	        Optional<String> temp = accessManager.getLoginName(UUID.fromString(token));
+	        String username = null;
+	        User user = null;
+	        
+	        if(temp.isPresent()) {
+	        	
+	            username = temp.get();
+	            user = userDAO.readUser(username);
+	            return Response.ok().entity(new UserLoginResponseData(username, token, user.getUserId())).build();
+	        }
+	        else{
+	            token = null;
+	            return Response.status(Status.CONFLICT).build();
+	        }
+	       
+	    }
+	
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)

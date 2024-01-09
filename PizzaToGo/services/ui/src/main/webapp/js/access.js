@@ -1,21 +1,59 @@
 window.addEventListener("load", initAccess);
 
 let accessToken = null;
+let user = null;
+let id = null;
 
 async function initAccess()
 {
 	
 	document.querySelector("#login").onclick = login;
 	document.querySelector("#logout-button").onclick =logout;
+	let gridContainerMain = document.getElementById('grid-container-main');
+	let createAccountContainer = document.getElementById('create-account-container');
+	let loginContainer = document.getElementById('login-container');
+	let loginButton = document.getElementById('login-button');
+	let loginForm = document.getElementById('LoginInfo');
+	let logoutForm = document.getElementById('LogoutInfo');
+	let loginText = document.getElementById('loginText');
 	
 
 	accessToken = sessionStorage.getItem("token");
+	
 	let isLoggedIn = false;
 	if(accessToken != null) {
-		
+		isLoggedIn = await checkLoginAPI();
 	}
 
-	
+	if(isLoggedIn){
+		loginContainer.style.display = "none";
+		gridContainerMain.style.display = "grid";
+		createAccountContainer.style.display = 'none';
+		loginForm.style.display = "none";
+		logoutForm.style.display = "block";
+		loginText.innerHTML = "Willkommen, " + user;
+	}
+	else{
+		
+	}
+}
+
+async function checkLoginAPI() {
+	await fetch("http://localhost:9082/api/access", {
+		method: 'GET',
+		headers: {
+			'Content-type':'application/json',
+			'token':accessToken}})
+		.then(response => response.json())
+		.then(data => {			
+			accessToken = data.token;
+			user = data.username;
+			id = data.userId
+			})
+		.catch((error) => {
+			console.error('Error:', error);
+		});
+	return user != null;
 }
 
 async function login(){
@@ -58,6 +96,7 @@ async function login(){
 				accessToken = data.token;
 				sessionStorage.setItem("token", accessToken);
 				user = data.username;
+				id = data.userId;
 				loginContainer.style.display = "none";
 				gridContainerMain.style.display = "grid";
 				createAccountContainer.style.display = 'none';
@@ -85,7 +124,8 @@ function logout(){
 			if (response.ok){
 				loginForm.style.display = "block";
 				logoutForm.style.display = "none";
-				loginButton.innerText = "LOGIN"
+				loginButton.innerText = "LOGIN";
+				id = 0;
 			}
 		})
 		.catch((error) => {
