@@ -12,6 +12,7 @@ import javax.ws.rs.core.Response;
 import app.api.dto.CreateOrderDTO;
 import app.dao.OrderDAO;
 import app.model.Order;
+import app.services.ProductionService;
 
 @Path("/shop")
 @Singleton
@@ -19,6 +20,9 @@ public class ShopController {
 
     @Inject
     private OrderDAO orderDAO;
+
+    @Inject
+    private ProductionService productionService;
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -28,6 +32,7 @@ public class ShopController {
 
         try {
             final Order createdOrder = orderDAO.createOrder(createData);
+            Boolean notified = productionService.notified(createdOrder);
             System.out.println();
             System.out.println("Created Order: " + createdOrder);
             return Response.ok().entity(createdOrder).build();
