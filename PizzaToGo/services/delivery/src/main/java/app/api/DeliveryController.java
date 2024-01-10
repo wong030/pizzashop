@@ -1,44 +1,67 @@
 package app.api;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import app.api.dto.CreateOrderDTO;
+import app.dao.OrderDAO;
+import app.model.Order;
 
-import javax.ws.rs.GET;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Path("/delivery")
+@Singleton
 public class DeliveryController {
+  
+    @Inject private OrderDAO orderDAO;
 
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+  
 
-    @GET
-    @Path("/{parameter}")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String doDelivery(@PathParam("parameter") String gsonString) {
-        processOrder(gsonString);
-        return gsonString; 
+    public Response doDelivery(CreateOrderDTO createData) {
+            try {
+            final Order createdOrder = orderDAO.createOrder(createData);
+            boolean log = writeLog(getUserInfo(createdOrder));
+            System.out.println("Write Log: " + log);
+            return Response.ok().entity(log).build();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            return Response.serverError().build();
+
+        }
     }
 
- private void processOrder(String gsonString) {
-    Gson gson = new Gson();
-    Delivery delivery = gson.fromJson(gsonString, Delivery.class);
+    private String getUserInfo(Order order){
 
-    String orderID = delivery.getOrderID();
-    String userID = delivery.getUserID();
-    String apiUrl = "http://localhost:9082/api/user/" + userID;
+        String userId =  Integer.toString(order.getUserId());
+        String orderID = Integer.toString(order.getOrderId());
+        String returnString = userId+", "+orderID;
+
+        //String apiUrl = "http://localhost:9082/api/user/" +userId ;
+
+
+        return returnString;
+    }
+/* 
+ private void processOrder(createData) {
+     String userId =  createData.getUserId();
+     String orderID =  createData.getOrderId();
+
+    String apiUrl = "http://localhost:9082/api/user/" +userId ;
 
     try {
         URL url = new URL(apiUrl);
@@ -76,13 +99,23 @@ public class DeliveryController {
     } catch (IOException e) {
         e.printStackTrace();
     }
- }
-      private void writeLog(String s) {
+ }*/
+      private boolean writeLog(String s) {
+        String output = s +", "+ getTime();
         String dataPath = "deliverylog.txt";
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(dataPath, true))) {
-            bufferedWriter.write(s);
+            bufferedWriter.write(output);
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
         }
+    }
+        private static String getTime() {
+
+        LocalDateTime timeAndDate = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = timeAndDate.format(formatter);
+        return formattedDateTime;
     }
 }
