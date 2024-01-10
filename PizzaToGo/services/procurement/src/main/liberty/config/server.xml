@@ -22,5 +22,12 @@
 
     <!-- The MP JWT configuration that injects the caller's JWT into a ResourceScoped bean for inspection. -->
     <mpJwt id="jwtUserConsumer" keyName="theKeyId" audiences="targetService" issuer="${jwt.issuer}"/>
+	
+	<cors domain="api/"
+	 allowedOrigins="*"
+	 allowedMethods="GET,POST,PUT,DELETE,HEAD,OPTIONS"
+	 allowCredentials="true"
+	 allowedHeaders="*"
+	 />
 
 </server>
