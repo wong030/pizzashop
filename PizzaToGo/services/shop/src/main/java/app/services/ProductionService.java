@@ -45,7 +45,7 @@ public class ProductionService {
         // Konvertieren in JSON-String
         String jsonBody = toJsonString(orderdto);
 
-        URI uri = URI.create("http://localhost:9081/processOrder");
+        URI uri = URI.create("http://localhost:9081/api/production");
 
         // HTTP-POST-Request mit JSON-Body
         HttpRequest request = HttpRequest.newBuilder()
