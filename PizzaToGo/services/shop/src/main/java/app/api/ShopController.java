@@ -35,6 +35,7 @@ public class ShopController {
             Boolean notified = productionService.notified(createdOrder);
             System.out.println();
             System.out.println("Created Order: " + createdOrder);
+            System.out.println("Production notified: " + notified);
             return Response.ok().entity(createdOrder).build();
 
         } catch (Exception e) {

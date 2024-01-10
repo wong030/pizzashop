@@ -9,14 +9,15 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.inject.Singleton;
-
+import javax.enterprise.inject.Model;
+import javax.inject.Named;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import app.model.Order;
 
-@Singleton
+@Named
+@Model
 public class ProductionService {
 
     public Boolean notified(Order order) throws IOException, InterruptedException {
@@ -44,7 +45,7 @@ public class ProductionService {
         // Konvertieren in JSON-String
         String jsonBody = toJsonString(orderdto);
 
-        URI uri = URI.create("http://localhost:9083/processOrder");
+        URI uri = URI.create("http://localhost:9081/processOrder");
 
         // HTTP-POST-Request mit JSON-Body
         HttpRequest request = HttpRequest.newBuilder()
@@ -54,13 +55,19 @@ public class ProductionService {
                 .build();
 
         // Send Request und erhalte Response
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        try{
+             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         System.out.println("Response Code: " + response.statusCode());
         System.out.println("Response Body: " + response.body());
 
         // Response-Body als boolean-Wert
         return Boolean.parseBoolean(response.body());
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+       
     }
 
     // Hilfsmethode
