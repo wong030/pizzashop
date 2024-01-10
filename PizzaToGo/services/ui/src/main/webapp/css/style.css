@@ -48,6 +48,13 @@ h2 {
 }
 
 
+.grid-container-pizzaDetailsName {
+	display: grid;
+	grid-template-columns: 70% 30%;
+	padding: 10px;
+}
+
+
 .grid-container-main {
 	position: fixed;
 	left: 0;
@@ -239,6 +246,13 @@ input[type=submit]:hover {
 	font-size: 30px;
 	color: white;
 	text-align: left;
+	list-style: none;
+}
+
+.pizzaPrice {
+	font-size: 40px;
+	color: red;
+	text-align: center;
 	list-style: none;
 }
 

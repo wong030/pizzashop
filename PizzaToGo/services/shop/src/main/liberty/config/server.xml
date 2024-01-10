@@ -32,5 +32,12 @@
 		<properties databaseName="OrderDB"
 			serverName="localhost" portNumber="3305" user="root" password="" />
 	</dataSource>
+	
+	<cors domain="api/"
+	 allowedOrigins="*"
+	 allowedMethods="GET,POST,PUT,DELETE,HEAD,OPTIONS"
+	 allowCredentials="true"
+	 allowedHeaders="*"
+	 />
 
 </server>
